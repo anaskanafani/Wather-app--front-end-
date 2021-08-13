@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-image: url(../src/pexels-pixabay-531756.jpeg);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: url(https://source.unsplash.com/1600x900/?dubai); */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.title {
+  margin-bottom: 2%;
+  margin-top: 4%;
+  font-size: 1.7em;
+  font-weight:600;
+  margin-left: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.temp-title {
+  margin-bottom: 3%;
+  font-size: 1.7em;
+  font-weight:600;
+  margin-left: 20px;
+}
+.card-con {
+  margin-bottom: 3%;
+  font-size: 1.3em;
+  font-weight:400;
+  margin-left: 20px;
+}
+.card-text {
+  margin-bottom: 3%;
+  font-size: 1.7em;
+  font-weight:500;
+  margin-left: 20px;
+}
+.card-img {
+  width: 10%;
+  height: 10%;
+}
+
+.btn {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+
+}
+
+.btn--primary {
+  background: #fafafa;
+  color: #a3a3a3;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 10px;
+  padding: 12px 36px;
+  margin-left: -96px; 
+}
+
+.btn--primary:hover {
+  color: #fff;
+  background: #111;
+}
+
+
+.form__field {
+  width: 120%;
+  /* background: #fff; */
+  color: #111;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .1);
+  border: 0;
+  outline: 0;
+  padding: 22px 18px;
+  margin-left: -96px;
+
+  background: rgba(255, 255, 255, 0.20);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.card {
+  background: rgba( 255, 255, 255, 0.20 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20.0px );
+  -webkit-backdrop-filter: blur( 20.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  top: 32%;
+  text-align: left;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-body {
+  margin-left: 1rem;
 }
