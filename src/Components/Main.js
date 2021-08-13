@@ -115,16 +115,16 @@ class Main extends React.Component {
                     <CardTitle className="temp-title" tag="h5">
                       {this.state.temp} °C
                     </CardTitle>
-                    <CardText className="card-text">
+                    <CardText className="card-text" style={{fontSize:"1.6em" , fontWeight:"500"}}>
+                      {this.state.description}
                       <img
                         className="card-img"
                         src={this.state.icon}
                         alt={this.state.description}
                       />{" "}
-                      {this.state.description}
                     </CardText>
-                    <CardText className="card-con">Humidity : {this.state.humidity}%</CardText>
-                    <CardText className="card-con">Wind : {this.state.wind} Km/h</CardText>
+                    <CardText>Humidity : {this.state.humidity}%</CardText>
+                    <CardText>Wind : {this.state.wind} Km/h</CardText>
                   </CardBody>
                 </Col>
               </Card>
