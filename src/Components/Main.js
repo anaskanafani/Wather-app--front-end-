@@ -14,7 +14,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      country: "dubai",
+      country: "",
       value: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,6 +35,7 @@ class Main extends React.Component {
       .then((response) => {
         console.log(response);
         this.setState({ temp: response.data.temp_c });
+        this.setState({ country: response.data.parsedBody.name });
         this.setState({ abbr: response.data.parsedBody.sys.country });
         this.setState({
           description: response.data.parsedBody.weather[0].description,
@@ -58,13 +59,11 @@ class Main extends React.Component {
         },
       })
       .then((response) => {
+        console.log(response);
         this.setState({ temp: response.data.temp_c });
-
+        this.setState({ country: response.data.parsedBody.name });
         this.setState({ wind: response.data.parsedBody.wind.speed });
         this.setState({ humidity: response.data.parsedBody.main.humidity });
-
-        console.log(response.data.parsedBody);
-        console.log(this.state.wind);
         this.setState({
           description: response.data.parsedBody.weather[0].description,
         });
@@ -76,7 +75,7 @@ class Main extends React.Component {
       })
       .catch(function (error) {
         console.log(error);
-        alert(error);
+        alert("Please input a valid country or city");
       });
     //
     this.setState({ country: this.state.value });
