@@ -10,6 +10,8 @@ import {
 } from "reactstrap";
 import axios from "axios";
 
+const key = "c17ed300017fc92410981d613c6e7933";
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -24,54 +26,52 @@ class Main extends React.Component {
   handleChange = (event) => {
     this.setState({ value: event.target.value });
   };
-
+  
   componentDidMount() {
     axios
-      .get("/weather", {
-        params: {
-          q: "dubai",
-        },
-      })
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?q=dubai&appid=${key}&units=metric`
+      )
       .then((response) => {
         console.log(response);
-        this.setState({ temp: response.data.temp_c });
-        this.setState({ country: response.data.parsedBody.name });
-        this.setState({ abbr: response.data.parsedBody.sys.country });
+        this.setState({ temp: response.data.main.temp.toFixed(1).replace(/\.0$/, "") });
+        this.setState({ country: response.data.name });
+        this.setState({ abbr: response.data.sys.country });
         this.setState({
-          description: response.data.parsedBody.weather[0].description,
+          description: response.data.weather[0].description,
         });
-        this.setState({ iconCode: response.data.parsedBody.weather[0].icon });
+        this.setState({ iconCode: response.data.weather[0].icon });
         this.setState({
           icon:
             "http://openweathermap.org/img/w/" + this.state.iconCode + ".png",
         });
 
-        this.setState({ wind: response.data.parsedBody.wind.speed });
-        this.setState({ humidity: response.data.parsedBody.main.humidity });
+        this.setState({ wind: response.data.wind.speed.toFixed(1).replace(/\.0$/, "") });
+        this.setState({ humidity: response.data.main.humidity });
       });
   }
 
   handleSubmit(event) {
     axios
-      .get("/weather", {
-        params: {
-          q: this.state.value,
-        },
-      })
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${key}&units=metric`
+      )
       .then((response) => {
         console.log(response);
-        this.setState({ temp: response.data.temp_c });
-        this.setState({ country: response.data.parsedBody.name });
-        this.setState({ wind: response.data.parsedBody.wind.speed });
-        this.setState({ humidity: response.data.parsedBody.main.humidity });
+        this.setState({ temp: response.data.main.temp.toFixed(1).replace(/\.0$/, "") });
+        this.setState({ country: response.data.name });
+        this.setState({ abbr: response.data.sys.country });
         this.setState({
-          description: response.data.parsedBody.weather[0].description,
+          description: response.data.weather[0].description,
         });
-        this.setState({ iconCode: response.data.parsedBody.weather[0].icon });
+        this.setState({ iconCode: response.data.weather[0].icon });
         this.setState({
           icon:
             "http://openweathermap.org/img/w/" + this.state.iconCode + ".png",
         });
+
+        this.setState({ wind: response.data.wind.speed.toFixed(1).replace(/\.0$/, "") });
+        this.setState({ humidity: response.data.main.humidity });
       })
       .catch(function (error) {
         console.log(error);
