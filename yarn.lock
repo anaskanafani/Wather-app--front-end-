@@ -10617,10 +10617,10 @@
   "resolved" "https://registry.npmjs.org/tapable/-/tapable-1.1.3.tgz"
   "version" "1.1.3"
 
-"tar@^6.0.2":
-  "integrity" "sha512-sb9b0cp855NbkMJcskdSYA7b11Q8JsX4qe4pyUAfHp+Y6jBjJeek2ZVlwEfWayshEIwlIzXx0Fain3QG9JPm2A=="
-  "resolved" "https://registry.npmjs.org/tar/-/tar-6.1.8.tgz"
-  "version" "6.1.8"
+"tar@^6.1.9":
+  "integrity" "sha512-XjLaMNl76o07zqZC/aW4lwegdY07baOH1T8w3AEfrHAdyg/oYO4ctjzEBq9Gy9fEP9oHqLIgvx6zuGDGe+bc8Q=="
+  "resolved" "https://registry.npmjs.org/tar/-/tar-6.1.9.tgz"
+  "version" "6.1.9"
   dependencies:
     "chownr" "^2.0.0"
     "fs-minipass" "^2.0.0"
